@@ -1,0 +1,293 @@
+---
+const features = [
+  { icon: "🔒", title: "End-to-end encrypted",        desc: "AES-256-GCM encryption in the browser via the Web Crypto API. The server never sees your files or keys." },
+  { icon: "🫥", title: "Zero-knowledge",               desc: "The encryption key lives only in the URL fragment — it is never sent to the server, ever." },
+  { icon: "📁", title: "Files & text",                 desc: "Transfer single files, multiple files (auto-zipped), or secret text notes and passwords." },
+  { icon: "🔑", title: "Password protection",          desc: "Add an optional password on any transfer. Secure passwords are generated automatically." },
+  { icon: "⏱️", title: "Expiration & download limits", desc: "Set a time-to-live and a maximum number of downloads per transfer." },
+  { icon: "⚡", title: "Instant revocation",           desc: "Revoke any transfer at any time from your dashboard." },
+  { icon: "🛡️", title: "Admin dashboard",              desc: "Full visibility over all transfers: revoke, delete, storage metrics, deletion audit log." },
+  { icon: "⚙️", title: "Instance settings",            desc: "Enforce password on all sends, require authentication to download, configure cleanup schedules." },
+  { icon: "🏢", title: "Enterprise authentication",    desc: "Keycloak out of the box — OAuth2, OIDC, SSO, LDAP/Active Directory, MFA." },
+  { icon: "☁️", title: "Flexible storage",             desc: "Local filesystem or any S3-compatible provider (AWS, MinIO, Scaleway, OVHcloud…)." },
+  { icon: "🎨", title: "Custom branding",              desc: "Set your own colour, logo, and app name — applied to both the app and the Keycloak login page." },
+  { icon: "🌐", title: "Multi-language UI",            desc: "English and French included. Additional languages can be added via translation files." },
+  { icon: "🌙", title: "Dark mode",                    desc: "System-aware dark theme, togglable per user." },
+  { icon: "📱", title: "QR code sharing",              desc: "Every transfer generates a QR code for easy cross-device sharing." },
+  { icon: "🐳", title: "Docker-native",                desc: "Full stack in a single docker compose up. Images published to GHCR." },
+];
+
+const communityVisible = features.slice(0, 6).map(f => f.title);
+const communityHidden  = features.slice(6).map(f => f.title);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sE2EEnd — End-to-End Encrypted File Transfer</title>
+    <meta name="description" content="Open-source, self-hosted, end-to-end encrypted file transfer. Zero-knowledge. Enterprise-ready." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- Nav -->
+    <nav>
+      <div class="nav-inner">
+        <span class="logo">sE2EEnd</span>
+        <div class="nav-links">
+          <a href="https://se2eend.github.io/sE2EEnd/" target="_blank">Docs</a>
+          <a href="https://github.com/sE2EEnd/sE2EEnd" target="_blank">GitHub</a>
+          <a href="https://github.com/sE2EEnd/sE2EEnd/releases" class="btn-outline" target="_blank">Download</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="badge">Open Source · AGPL-3.0</div>
+
+      <div class="wordmark" aria-label="sE2EEnd">
+        <span class="wm-accent">se</span><span class="wm-muted">2ee</span><span class="wm-accent">nd</span>
+      </div>
+      <div class="pronunciation">/ sɛnd / &nbsp;·&nbsp; pronounced <strong>"Send"</strong></div>
+
+      <h1>Encrypted file transfer,<br /><span class="accent">under your control.</span></h1>
+      <p class="hero-sub">
+        Self-hosted, end-to-end encrypted file sharing. The server never sees your files or encryption keys.
+        Built for teams who can't compromise on privacy.
+      </p>
+      <div class="hero-actions">
+        <a href="https://se2eend.github.io/sE2EEnd/getting-started/installation" class="btn-primary" target="_blank">Get started</a>
+        <a href="https://github.com/sE2EEnd/sE2EEnd" class="btn-ghost" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="hero-pills">
+        <span>AES-256-GCM</span>
+        <span>Zero-knowledge</span>
+        <span>Keycloak SSO</span>
+        <span>Docker</span>
+        <span>S3-compatible</span>
+      </div>
+    </section>
+
+    <!-- Editions -->
+    <section class="pricing">
+      <div class="section-inner">
+        <h2>Editions</h2>
+        <p class="section-sub">Start free. Scale when you're ready.</p>
+
+        <div class="plans">
+
+          <!-- Community -->
+          <div class="plan">
+            <div class="plan-header">
+              <span class="plan-badge community">Community</span>
+              <div class="plan-price">Free</div>
+              <p class="plan-desc">Open source, self-hosted, forever free.</p>
+              <a href="https://se2eend.github.io/sE2EEnd/getting-started/installation" class="btn-primary" target="_blank">Get started</a>
+            </div>
+            <ul class="plan-features">
+              {communityVisible.map(f => (
+                <li><span class="check">✓</span> {f}</li>
+              ))}
+            </ul>
+            <details class="plan-more">
+              <summary>+{communityHidden.length} more features</summary>
+              <ul class="plan-features plan-features-extra">
+                {communityHidden.map(f => (
+                  <li><span class="check">✓</span> {f}</li>
+                ))}
+              </ul>
+            </details>
+          </div>
+
+          <!-- Pro -->
+          <div class="plan plan-pro">
+            <div class="plan-header">
+              <span class="plan-badge pro">Pro</span>
+              <div class="plan-price">Coming soon</div>
+              <p class="plan-desc">Extra features for growing teams. Currently in development.</p>
+              <a href="https://github.com/sE2EEnd/sE2EEnd/discussions" class="btn-outline" target="_blank">Join the discussion</a>
+            </div>
+            <div class="wip-banner">🚧 In development — shape it on GitHub Discussions</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="section-inner">
+        <h2>Everything you need, nothing you don't.</h2>
+        <p class="section-sub">The Community edition is fully featured — no artificial limits.</p>
+        <div class="features-grid">
+          {features.map(f => (
+            <div class="feature-card">
+              <span class="feature-icon">{f.icon}</span>
+              <h3>{f.title}</h3>
+              <p>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Ready to take control of your file transfers?</h2>
+      <p>Deploy in minutes with Docker. No external dependencies, no data leaving your infrastructure.</p>
+      <div class="cta-actions">
+        <a href="https://se2eend.github.io/sE2EEnd/getting-started/installation" class="btn-primary" target="_blank">Read the docs</a>
+        <a href="https://github.com/sE2EEnd/sE2EEnd" class="btn-ghost" target="_blank">Star on GitHub →</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© {new Date().getFullYear()} sE2EEnd contributors — AGPL-3.0</span>
+      <div class="footer-links">
+        <a href="https://github.com/sE2EEnd/sE2EEnd" target="_blank">GitHub</a>
+        <a href="https://se2eend.github.io/sE2EEnd/" target="_blank">Documentation</a>
+        <a href="https://github.com/sE2EEnd/sE2EEnd/issues" target="_blank">Issues</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --bg: #0a0a0f;
+    --bg-card: #111118;
+    --bg-card-border: #1e1e2e;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --pro: #7c3aed;
+    --pro-light: #a78bfa;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--bg-card-border); background: rgba(10,10,15,0.85); backdrop-filter: blur(12px); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.1rem; font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+  .nav-links a:hover { color: var(--text); }
+
+  /* Buttons */
+  .btn-primary { display: inline-block; background: var(--primary); color: #fff; padding: 0.65rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.15s; }
+  .btn-primary:hover { background: var(--primary-dark); }
+  .btn-outline { display: inline-block; border: 1px solid var(--bg-card-border); color: var(--text-muted); padding: 0.6rem 1.3rem; border-radius: 8px; font-size: 0.9rem; transition: border-color 0.15s, color 0.15s; }
+  .btn-outline:hover { border-color: var(--text-muted); color: var(--text); }
+  .btn-ghost { display: inline-block; color: var(--text-muted); font-size: 0.9rem; transition: color 0.15s; }
+  .btn-ghost:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { max-width: 800px; margin: 0 auto; padding: 6rem 2rem 5rem; text-align: center; }
+  .badge { display: inline-block; border: 1px solid var(--bg-card-border); color: var(--text-muted); font-size: 0.78rem; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1.5rem; }
+  /* Wordmark */
+  .wordmark {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    user-select: none;
+  }
+  .wm-muted  { color: rgba(241,245,249,0.18); }
+  .wm-accent { color: var(--primary-light); }
+
+  .pronunciation {
+    display: inline-block;
+    border: 1px solid rgba(241,245,249,0.15);
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.01em;
+  }
+  .pronunciation strong { color: var(--text); font-weight: 600; }
+
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; }
+  .accent { color: var(--primary-light); }
+  .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 2rem; }
+  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .hero-pills span { font-size: 0.75rem; color: var(--text-muted); border: 1px solid var(--bg-card-border); padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--bg-card); }
+
+  /* Sections */
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .pricing, .features { padding: 5rem 0; border-top: 1px solid var(--bg-card-border); }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.5rem; }
+  .section-sub { color: var(--text-muted); margin-bottom: 3rem; font-size: 1rem; }
+
+  /* Plans */
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; align-items: start; }
+  .plan { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 16px; overflow: hidden; }
+  .plan-pro { border-color: var(--pro); }
+  .plan-header { padding: 2rem; border-bottom: 1px solid var(--bg-card-border); }
+  .plan-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 1rem; }
+  .plan-badge.community { background: rgba(37,99,235,0.15); color: var(--primary-light); }
+  .plan-badge.pro { background: rgba(124,58,237,0.15); color: var(--pro-light); }
+  .plan-price { font-size: 2rem; font-weight: 800; margin-bottom: 0.4rem; }
+  .plan-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+  .plan-features { list-style: none; padding: 1.5rem 2rem 0.5rem; display: flex; flex-direction: column; gap: 0.65rem; }
+  .plan-features-extra { padding-top: 0.65rem; }
+  .plan-features li { font-size: 0.875rem; display: flex; align-items: baseline; gap: 0.6rem; color: var(--text-muted); }
+  .check { color: #22c55e; font-size: 0.8rem; flex-shrink: 0; }
+  .pro-check { color: var(--pro-light); }
+
+  /* Details / expand */
+  .plan-more { border-top: 1px solid var(--bg-card-border); }
+  .plan-more summary {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    transition: color 0.15s, background 0.15s;
+  }
+  .plan-more summary::-webkit-details-marker { display: none; }
+  .plan-more summary::after { content: '↓'; font-size: 0.75rem; transition: transform 0.2s; }
+  .plan-more[open] summary::after { transform: rotate(180deg); }
+  .plan-more[open] summary { color: var(--text); }
+  .plan-more summary:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+
+  .wip-banner { margin: 0.5rem 1.5rem 1.5rem; background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--pro-light); text-align: center; }
+
+  /* Features grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .feature-card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.4rem; transition: border-color 0.15s; }
+  .feature-card:hover { border-color: #2d2d45; }
+  .feature-icon { font-size: 1.5rem; display: block; margin-bottom: 0.6rem; }
+  .feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .feature-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* CTA */
+  .cta { border-top: 1px solid var(--bg-card-border); padding: 5rem 2rem; text-align: center; max-width: 680px; margin: 0 auto; }
+  .cta h2 { margin-bottom: 0.75rem; }
+  .cta p { color: var(--text-muted); margin-bottom: 2rem; }
+  .cta-actions { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--bg-card-border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-muted); max-width: 1100px; margin: 0 auto; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a:hover { color: var(--text); }
+</style>
