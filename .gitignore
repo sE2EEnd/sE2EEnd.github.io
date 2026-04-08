@@ -1,0 +1,15 @@
+# IDE
+.idea/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Astro cache
+.astro/
+
+# OS
+.DS_Store
+Thumbs.db
