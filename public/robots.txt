@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://se2eend.github.io/sitemap.xml
