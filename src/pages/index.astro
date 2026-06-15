@@ -3,11 +3,12 @@ const features = [
   { icon: "🔒", title: "End-to-end encrypted",        desc: "AES-256-GCM encryption in the browser via the Web Crypto API. The server never sees your files or keys." },
   { icon: "🫥", title: "Zero-knowledge",               desc: "The encryption key lives only in the URL fragment — it is never sent to the server, ever." },
   { icon: "📁", title: "Files & text",                 desc: "Transfer single files, multiple files (auto-zipped), or secret text notes and passwords." },
+  { icon: "📦", title: "Large files",                  desc: "Multi-gigabyte transfers, encrypted and streamed in chunks — never buffered fully in memory, in any browser." },
   { icon: "🔑", title: "Password protection",          desc: "Add an optional password on any transfer. Secure passwords are generated automatically." },
   { icon: "⏱️", title: "Expiration & download limits", desc: "Set a time-to-live and a maximum number of downloads per transfer." },
   { icon: "⚡", title: "Instant revocation",           desc: "Revoke any transfer at any time from your dashboard." },
   { icon: "🛡️", title: "Admin dashboard",              desc: "Full visibility over all transfers: revoke, delete, storage metrics, deletion audit log." },
-  { icon: "⚙️", title: "Instance settings",            desc: "Enforce password on all sends, require authentication to download, configure cleanup schedules." },
+  { icon: "⚙️", title: "Instance settings",            desc: "Enforce password on all sends, require authentication to download, set upload size limits, configure cleanup schedules." },
   { icon: "🏢", title: "Enterprise authentication",    desc: "Keycloak out of the box — OAuth2, OIDC, SSO, LDAP/Active Directory, MFA." },
   { icon: "☁️", title: "Flexible storage",             desc: "Local filesystem or any S3-compatible provider (AWS, MinIO, Scaleway, OVHcloud…)." },
   { icon: "🎨", title: "Custom branding",              desc: "Set your own colour, logo, and app name — applied to both the app and the Keycloak login page." },
@@ -69,6 +70,7 @@ const communityHidden  = features.slice(6).map(f => f.title);
       <div class="hero-pills">
         <span>AES-256-GCM</span>
         <span>Zero-knowledge</span>
+        <span>Multi-GB files</span>
         <span>Keycloak SSO</span>
         <span>Docker</span>
         <span>S3-compatible</span>
