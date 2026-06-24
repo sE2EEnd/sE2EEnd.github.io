@@ -44,6 +44,7 @@ const communityHidden  = features.slice(6).map(f => f.title);
         <div class="nav-links">
           <a href="https://se2eend.github.io/sE2EEnd/" target="_blank">Docs</a>
           <a href="https://github.com/sE2EEnd/sE2EEnd" target="_blank">GitHub</a>
+          <a href="https://se2eend.github.io/sE2EEnd/demo/" class="nav-demo" target="_blank"><span class="live-dot"></span>Live demo</a>
           <a href="https://github.com/sE2EEnd/sE2EEnd/releases" class="btn-outline" target="_blank">Download</a>
         </div>
       </div>
@@ -65,8 +66,9 @@ const communityHidden  = features.slice(6).map(f => f.title);
       </p>
       <div class="hero-actions">
         <a href="https://se2eend.github.io/sE2EEnd/getting-started/installation" class="btn-primary" target="_blank">Get started</a>
-        <a href="https://github.com/sE2EEnd/sE2EEnd" class="btn-ghost" target="_blank">View on GitHub →</a>
+        <a href="https://se2eend.github.io/sE2EEnd/demo/" class="btn-demo-hero" target="_blank">Try the demo →</a>
       </div>
+      <p class="demo-hint">No signup needed · no install</p>
       <div class="hero-pills">
         <span>AES-256-GCM</span>
         <span>Zero-knowledge</span>
@@ -146,7 +148,7 @@ const communityHidden  = features.slice(6).map(f => f.title);
       <p>Deploy in minutes with Docker. No external dependencies, no data leaving your infrastructure.</p>
       <div class="cta-actions">
         <a href="https://se2eend.github.io/sE2EEnd/getting-started/installation" class="btn-primary" target="_blank">Read the docs</a>
-        <a href="https://github.com/sE2EEnd/sE2EEnd" class="btn-ghost" target="_blank">Star on GitHub →</a>
+        <a href="https://se2eend.github.io/sE2EEnd/demo/" class="btn-demo-hero" target="_blank">Try the demo →</a>
       </div>
     </section>
 
@@ -197,6 +199,23 @@ const communityHidden  = features.slice(6).map(f => f.title);
   .btn-outline:hover { border-color: var(--text-muted); color: var(--text); }
   .btn-ghost { display: inline-block; color: var(--text-muted); font-size: 0.9rem; transition: color 0.15s; }
   .btn-ghost:hover { color: var(--text); }
+
+  /* Nav demo link */
+  .nav-demo { display: flex; align-items: center; gap: 0.35rem; color: var(--primary-light) !important; font-weight: 500; }
+  .nav-demo:hover { color: #fff !important; }
+  .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.45); }
+    70%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+
+  /* Demo button */
+  .btn-demo-hero { display: inline-block; border: 1.5px solid var(--primary-light); color: var(--primary-light); padding: 0.65rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+  .btn-demo-hero:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+  /* Demo hint */
+  .demo-hint { font-size: 0.78rem; color: var(--text-muted); margin-top: -1.5rem; margin-bottom: 2.5rem; opacity: 0.7; }
 
   /* Hero */
   .hero { max-width: 800px; margin: 0 auto; padding: 6rem 2rem 5rem; text-align: center; }
